@@ -53,18 +53,20 @@ DROP TABLE acftref;
 
 CREATE TABLE acftref
 (
-  code character(7) NOT NULL,
-  mfr character varying(30),
-  model character varying(20),
-  type_acft character(5),
-  type_eng character(4),
-  ac_cat character(1),
-  build_cert_ind character(1),
-  no_eng character varying(2),
-  no_seats character varying(3),
-  ac_weight character varying(7),
-  speed character varying(4),
-  pad character(1),
+  code character(7) COLLATE pg_catalog."default" NOT NULL,
+  mfr character varying(30) COLLATE pg_catalog."default",
+  model character varying(20) COLLATE pg_catalog."default",
+  type_acft character(5) COLLATE pg_catalog."default",
+  type_eng character(4) COLLATE pg_catalog."default",
+  ac_cat character(1) COLLATE pg_catalog."default",
+  build_cert_ind character(1) COLLATE pg_catalog."default",
+  no_eng character varying(2) COLLATE pg_catalog."default",
+  no_seats character varying(3) COLLATE pg_catalog."default",
+  ac_weight character varying(7) COLLATE pg_catalog."default",
+  speed character varying(4) COLLATE pg_catalog."default",
+	tc_data_sheet character(15) COLLATE pg_catalog."default",
+	tc_data_holder character(50) COLLATE pg_catalog."default",
+  pad character(1) COLLATE pg_catalog."default",
   CONSTRAINT acftref_pkey PRIMARY KEY (code)
 )
 WITH (
@@ -123,18 +125,19 @@ DROP TABLE reserved;
 
 CREATE TABLE reserved
 (
-  n_number character(5) NOT NULL,
-  registrant character varying(50),
-  street character varying(33),
-  street2 character varying(33),
-  city character varying(18),
-  state character(2),
-  zip_code character varying(10),
-  rsv_date character varying(8),
-  tr character varying(2),
-  exp_date character varying(8),
-  n_num_chg character(5),
-  pad character(1),
+  n_number character(5) COLLATE pg_catalog."default" NOT NULL,
+  registrant character varying(50) COLLATE pg_catalog."default",
+  street character varying(33) COLLATE pg_catalog."default",
+  street2 character varying(33) COLLATE pg_catalog."default",
+  city character varying(18) COLLATE pg_catalog."default",
+  state character(2) COLLATE pg_catalog."default",
+  zip_code character varying(10) COLLATE pg_catalog."default",
+  rsv_date character varying(8) COLLATE pg_catalog."default",
+  tr character varying(2) COLLATE pg_catalog."default",
+  exp_date character varying(8) COLLATE pg_catalog."default",
+  n_num_chg character(5) COLLATE pg_catalog."default",
+	purge_date character varying(8) COLLATE pg_catalog."default",
+  pad character(1) COLLATE pg_catalog."default",
   CONSTRAINT reserved_pkey PRIMARY KEY (n_number)
 )
 WITH (
@@ -236,7 +239,7 @@ CREATE TABLE dereg
   other_names_2 character varying(50),
   other_names_3 character varying(50),
   other_names_4 character varying(50),
-  other_names_ character varying(50),
+  other_names_5 character varying(50),
   kit_mfr character varying(30),
   kit_model character varying(20),
   mode_s_code_hex character varying(10),
